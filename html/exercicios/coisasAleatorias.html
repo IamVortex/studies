@@ -1,0 +1,28 @@
+<h1>Slide</h1>
+
+<div slides>
+    <p>
+    <img src="https://i0.wp.com/microgmx.com/wp-content/uploads/2021/04/Eu-Vou-Lhe-Achar-Pikomon.jpg?fit=770%2C479&ssl=1" 
+    alt="Pikomon"
+    width="513"
+    height="342">
+    </p>
+</div>
+
+<script>
+    function slide(elem, inicio, fim, percurso, callback) {
+        const inicio2 = inicio - percurso
+        if(inicio2 >= fim) {
+            elem.style.left = inicio2 + 'px'
+            setTimeout(() => slide(elem, inicio, fim, percurso, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    const p = document.querySelector('[slides] > p')
+    p.style.display = 'block'
+    slide(p, 1500, -400, 5, () => {
+        console.log('Terminou!!')
+    })
+</script>
